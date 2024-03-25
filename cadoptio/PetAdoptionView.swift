@@ -8,29 +8,23 @@
 import SwiftUI
 
 struct PetAdoptionView: View {
-    let categories = ["All", "Cat", "Dog", "Hamster", "Rabbit"]
-    let pets = [
-        ("Leppy", "Domestic", 1.0, 3.0, "Male"),
-        ("Butet", "Persian", 3.5, 5.0, "Female"),
-        ("Sky", "Domestic", 8.5, 4.9, "Female"),
-        ("Kentang", "British Shorthair", 8.5, 4.9, "Female")
-    ]
     
     @State private var isFilterViewPresented = false
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 16) {
-                ScrollView {
-                    ForEach(pets, id: \.0) { pet in
-                        PetCard(name: pet.0, type: pet.1, distance: pet.2, weight: pet.3, gender: pet.4)
-                            .padding(.vertical, 8)
-                    }
-                }
-                .padding(16)
-                .shadow(radius: 10)
-                
+                PetCard(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male")
+                    .shadow(radius: 10)
+                PetCard(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female")
+                    .shadow(radius: 10)
+                PetCard(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female")
+                    .shadow(radius: 10)
+                PetCard(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")
+                    .shadow(radius: 10)
+                Spacer()
             }
+            .padding(16)
             .navigationBarTitle("Discover")
             .toolbar {
                 Button(action: {
@@ -123,6 +117,7 @@ struct PetCard: View {
         .frame(width: .infinity, height: .infinity, alignment: .center)
         .cornerRadius(8)
     }
+    
 }
 
 struct PetAdoptionView_Previews: PreviewProvider {
