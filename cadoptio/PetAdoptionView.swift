@@ -82,6 +82,7 @@ struct PetCard: View {
                             .foregroundColor(.orange)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 14, height: 14)
+                            .opacity(calculateDistanceOpacity(distance: distance))
                         Text("\(distance, specifier: "%.1f") km")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.gray)
@@ -93,6 +94,7 @@ struct PetCard: View {
                             .foregroundColor(.orange)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 14, height: 14)
+                            .opacity(calculateWeightOpacity(weight: weight))
                         Text("\(weight, specifier: "%.1f") kg")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.gray)
@@ -116,6 +118,22 @@ struct PetCard: View {
         .background(Color(.white))
         .frame(width: .infinity, height: .infinity, alignment: .center)
         .cornerRadius(8)
+    }
+    
+    func calculateWeightOpacity(weight: Double) -> Double {
+        if weight < 3.5 {
+            return 1.0
+        } else {
+            return 0.5
+        }
+    }
+    
+    func calculateDistanceOpacity(distance: Double) -> Double {
+        if distance < 5.0 {
+            return 1.0
+        } else {
+            return 0.5
+        }
     }
     
 }
