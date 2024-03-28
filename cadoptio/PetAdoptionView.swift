@@ -12,7 +12,7 @@ struct PetAdoptionView: View {
     @State private var isFilterViewPresented = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
                 PetCard(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male")
                     .shadow(radius: 10)
