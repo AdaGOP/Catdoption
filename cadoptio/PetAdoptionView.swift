@@ -14,14 +14,74 @@ struct PetAdoptionView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
-                PetCard(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male")
-                    .shadow(color: .black.opacity(0.2), radius: 4)
-                PetCard(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female")
-                    .shadow(color: .black.opacity(0.2), radius: 4)
-                PetCard(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female")
-                    .shadow(color: .black.opacity(0.2), radius: 4)
-                PetCard(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")
-                    .shadow(color: .black.opacity(0.2), radius: 4)
+                HStack() {
+                    Image("Leppy")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(8)
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Leppy")
+                                .font(.headline)
+                            Spacer()
+                            Button(action: {}) {
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 18, height: 18)
+                                    .foregroundColor(.pink)
+                                    .font(.title)
+                            }
+                        }
+                        Text("Domestic")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        HStack {
+                            HStack {
+                                Image(systemName: "location.fill")
+                                    .resizable()
+                                    .foregroundColor(.orange)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 14, height: 14)
+                                    .opacity(calculateDistanceOpacity(distance: 1.0))
+                                Text("1 km")
+                                    .font(.system(size: 12, weight: .regular))
+                                    .foregroundColor(.gray)
+                                Spacer()
+                            }
+                            HStack {
+                                Image(systemName: "scalemass.fill")
+                                    .resizable()
+                                    .foregroundColor(.orange)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 14, height: 14)
+                                    .opacity(calculateWeightOpacity(weight: 3.0))
+                                Text("3 kg")
+                                    .font(.system(size: 12, weight: .regular))
+                                    .foregroundColor(.gray)
+                                Spacer()
+                            }
+                            HStack {
+                                Image(systemName: "pawprint.fill")
+                                    .resizable()
+                                    .foregroundColor(.orange)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 14, height: 14)
+                                Text("Male")
+                                    .font(.system(size: 12, weight: .regular))
+                                    .foregroundColor(.gray)
+                                Spacer()
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 10.0)
+                }
+                .background(Color(.white))
+                .frame(width: .infinity, height: .infinity, alignment: .center)
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.2), radius: 4)
+                
                 Spacer()
             }
             .padding(16)
@@ -39,86 +99,7 @@ struct PetAdoptionView: View {
             }
         }
     }
-}
-
-struct PetCard: View {
-    let name: String
-    let type: String
-    let distance: Double
-    let weight: Double
-    let gender: String
     
-    var body: some View {
-        HStack() {
-            Rectangle()
-                .frame(width: 100, height: 100)
-                .cornerRadius(8)
-                .overlay(
-                    Image(name)
-                        .resizable()
-                        .scaledToFill()
-                )
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text(name)
-                        .font(.headline)
-                    Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 18, height: 18)
-                            .foregroundColor(.pink)
-                            .font(.title)
-                    }
-                }
-                Text(type)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                HStack {
-                    HStack {
-                        Image(systemName: "location.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                            .opacity(calculateDistanceOpacity(distance: distance))
-                        Text("\(distance, specifier: "%.1f") km")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack {
-                        Image(systemName: "scalemass.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                            .opacity(calculateWeightOpacity(weight: weight))
-                        Text("\(weight, specifier: "%.1f") kg")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack {
-                        Image(systemName: "pawprint.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                        Text(gender)
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-            }
-            .padding(.horizontal, 10.0)
-        }
-        .background(Color(.white))
-        .frame(width: .infinity, height: .infinity, alignment: .center)
-        .cornerRadius(8)
-    }
     
     func calculateWeightOpacity(weight: Double) -> Double {
         if weight < 3.5 {
@@ -135,7 +116,6 @@ struct PetCard: View {
             return 0.5
         }
     }
-    
 }
 
 struct PetAdoptionView_Previews: PreviewProvider {
