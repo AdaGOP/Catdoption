@@ -15,13 +15,13 @@ struct PetAdoptionView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
                 PetCard(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male")
-                    .shadow(radius: 10)
+                    .shadow(color: .black.opacity(0.2), radius: 4)
                 PetCard(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female")
-                    .shadow(radius: 10)
+                    .shadow(color: .black.opacity(0.2), radius: 4)
                 PetCard(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female")
-                    .shadow(radius: 10)
+                    .shadow(color: .black.opacity(0.2), radius: 4)
                 PetCard(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")
-                    .shadow(radius: 10)
+                    .shadow(color: .black.opacity(0.2), radius: 4)
                 Spacer()
             }
             .padding(16)
@@ -54,9 +54,9 @@ struct PetCard: View {
                 .frame(width: 100, height: 100)
                 .cornerRadius(8)
                 .overlay(
-                    Image("placeholder")
+                    Image(name)
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                 )
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
