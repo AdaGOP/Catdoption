@@ -10,15 +10,17 @@ struct FilterView: View {
     @State private var genderTapCount = 0
     @State private var ageTapCount = 0
     @State private var pedigreeTapCount = 0
+    @State private var lifeTapCount = 0
 
     // State variables to toggle the selection filter
     @State private var breedIsActive = false
     @State private var genderIsActive = false
     @State private var ageIsActive = false
     @State private var pegidreeIsActive = false
+    @State private var numOfLifeIsActive = false
     
     func updateTotalFiltersCount() {
-        filtersSelectedCount = breedTapCount + genderTapCount + ageTapCount + pedigreeTapCount
+        filtersSelectedCount = breedTapCount + genderTapCount + ageTapCount + pedigreeTapCount + lifeTapCount
     }
     
     var body: some View {
@@ -52,6 +54,23 @@ struct FilterView: View {
                         self.pegidreeIsActive.toggle()
                     }
                 // Add more buttons as necessary
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Number of Live")
+                        .font(.headline)
+                    
+                    Button(action: {
+                        self.lifeTapCount += 1
+                        self.updateTotalFiltersCount()
+                        self.numOfLifeIsActive.toggle()
+                    }) {
+                        Text("1-5")
+                            .padding(12)
+                            .background(numOfLifeIsActive ? Color.red : Color.gray.opacity(0.1))
+                            .foregroundColor(.primary)
+                            .cornerRadius(8)
+                    }
+                }
+                .padding(.horizontal)
             }
             .padding(.top, 12)
             .padding(.horizontal)
