@@ -16,13 +16,13 @@ struct PetAdoptionView: View {
             VStack(alignment: .leading, spacing: 16) {
                 
                 // PET 1
-                PetCard(name: "Leppy", breed: "Domestic", distance: "1 km", weight: "3 kg", gender: "Female", imageName: "Leppy", onHeartTap: {})
+                PetCard(name: "Leppy", breed: "Domestic", distance: 1, weight: "3 kg", gender: "Female", imageName: "Leppy", onHeartTap: {})
                 // PET 2
-                PetCard(name: "Butet", breed: "Persian", distance: "3,5 km", weight: "4,8 kg", gender: "Female", imageName: "Sky", onHeartTap: {})
+                PetCard(name: "Butet", breed: "Persian", distance: 3.5, weight: "4,8 kg", gender: "Female", imageName: "Sky", onHeartTap: {})
                 // PET 3
-                PetCard(name: "Sky", breed: "Ragdoll", distance: "5 km", weight: "5 kg", gender: "Male", imageName: "Sky", onHeartTap: {})
+                PetCard(name: "Sky", breed: "Ragdoll", distance: 5, weight: "5 kg", gender: "Male", imageName: "Sky", onHeartTap: {})
                 // PET 4
-                PetCard(name: "Kentang", breed: "Himalayan", distance: "9 km", weight: "2 kg", gender: "Male", imageName: "Kentang", onHeartTap: {})
+                PetCard(name: "Kentang", breed: "Himalayan", distance: 9, weight: "2 kg", gender: "Male", imageName: "Kentang", onHeartTap: {})
                 
                 Spacer()
             }
@@ -46,7 +46,7 @@ struct PetAdoptionView: View {
 struct PetCard: View {
     var name: String
     var breed: String
-    var distance: String
+    var distance: Double
     var weight: String
     var gender: String
     var imageName: String
@@ -83,7 +83,8 @@ struct PetCard: View {
                             .foregroundColor(.orange)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 14, height: 14)
-                        Text(distance)
+                            .opacity(calculateDistanceOpacity(distance: distance))
+                        Text(" \(distance, specifier: "%.1f") Km")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.gray)
                         Spacer()
