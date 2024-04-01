@@ -119,6 +119,22 @@ struct PetCard: View {
         .cornerRadius(8)
         .shadow(color: .black.opacity(0.2), radius: 4)
     }
+    
+    func calculateWeightOpacity(weight: Double) -> Double {
+        if weight < 3.5 {
+            return 1.0
+        } else {
+            return 0.5
+        }
+    }
+    
+    func calculateDistanceOpacity(distance: Double) -> Double {
+        if distance < 5.0 {
+            return 1.0
+        } else {
+            return 0.5
+        }
+    }
 }
 
 
