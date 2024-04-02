@@ -3,7 +3,7 @@ import SwiftUI
 struct FilterView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var filtersSelectedCount = 0
+    var filtersSelectedCount = 0
     
     // State variables to store button tap count
     
@@ -61,9 +61,8 @@ struct FilterButton: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(segmentTitle)
                 .font(.headline)
-            
             Button(action: {
-                
+                print("+1")
             }) {
                 Text(itemTitle)
                     .padding(12)
