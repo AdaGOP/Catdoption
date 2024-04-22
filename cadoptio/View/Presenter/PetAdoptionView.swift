@@ -16,7 +16,13 @@ struct PetAdoptionView: View {
         NavigationStack {
             List(petData, id: \.self) { pet in
                 PetCardView(pet: pet, onHeartTap: {})
-                    .listRowSeparator(.hidden)
+                    .background {
+                        NavigationLink(destination: PetDetailView(pet: pet)) {
+                            EmptyView()
+                        }
+                    }
+                
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationTitle("Discover")

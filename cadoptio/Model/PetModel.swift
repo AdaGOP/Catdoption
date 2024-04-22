@@ -27,7 +27,7 @@ struct PetModel: Hashable {
     func getPetData() -> [PetModel] {
         return [
             PetModel(name: "Leppy", breed: "Domestic", distance: 1, weight: "3 kg", gender: "Female", imageName: "Leppy"),
-            PetModel(name: "Butet", breed: "Persian", distance: 3.5, weight: "4,8 kg", gender: "Female", imageName: "Sky"),
+            PetModel(name: "Butet", breed: "Persian", distance: 3.5, weight: "4,8 kg", gender: "Female", imageName: "Butet"),
             PetModel(name: "Sky", breed: "Ragdoll", distance: 5, weight: "5 kg", gender: "Male", imageName: "Sky"),
             PetModel(name: "Kentang", breed: "Himalayan", distance: 9, weight: "2 kg", gender: "Male", imageName: "Kentang")
         ]

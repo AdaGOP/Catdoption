@@ -68,12 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				465612952BAD576C00A51350 /* cadoptioApp.swift */,
-				4E1B505E2BD5D57900D9C1D6 /* PetModel.swift */,
-				465612972BAD576C00A51350 /* PetAdoptionView.swift */,
-				4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */,
-				4E1B505C2BD1F08500D9C1D6 /* PetDetailView.swift */,
-				469512A52BB124B90075B74A /* FilterView.swift */,
-				4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */,
+				4E1B50722BD5E02300D9C1D6 /* Model */,
+				4E1B50732BD5E03C00D9C1D6 /* View */,
 				4E1B506A2BD5DB5400D9C1D6 /* CircleAnimationView.swift */,
 				4E1B50662BD5D8E700D9C1D6 /* BasicShapes.swift */,
 				4E1B50642BD5D87200D9C1D6 /* CustomHeartShape.swift */,
@@ -89,6 +85,42 @@
 				4656129C2BAD576E00A51350 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4E1B50722BD5E02300D9C1D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E1B505E2BD5D57900D9C1D6 /* PetModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4E1B50732BD5E03C00D9C1D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E1B50742BD5E05500D9C1D6 /* Presenter */,
+				4E1B50752BD5E09200D9C1D6 /* Component */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E1B50742BD5E05500D9C1D6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				465612972BAD576C00A51350 /* PetAdoptionView.swift */,
+				4E1B505C2BD1F08500D9C1D6 /* PetDetailView.swift */,
+				469512A52BB124B90075B74A /* FilterView.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4E1B50752BD5E09200D9C1D6 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */,
+				4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
