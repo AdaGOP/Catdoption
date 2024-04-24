@@ -9,20 +9,38 @@ import SwiftUI
 
 struct CircleAnimationView: View {
     @State var currentOpacity = 0.1
+    @State private var offset = CGSize.zero
     
     var body: some View{
-//        BouncingCircleView()
+        //        BouncingCircleView()
         Circle()
             .opacity(currentOpacity)
+            .frame(width: 50, height: 50)
+            .offset(offset)
             .animation(
                 .easeInOut(duration: 2.0),
                 value: currentOpacity
             )
-            .onTapGesture {
-//                withAnimation(.easeInOut(duration: 2.0)) {
-                    currentOpacity = 1
-//                }
-            }
+//            .onLongPressGesture(perform: {
+//                currentOpacity = 1
+//            })
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        offset = value.translation
+                    }
+                    .onEnded { value in
+                        offset = .zero
+                    }
+                    .simultaneously(with: LongPressGesture().onEnded({ _ in
+                        currentOpacity = 1
+                    }))
+            )
+        //            .onTapGesture {
+        ////                withAnimation(.easeInOut(duration: 2.0)) {
+        //                    currentOpacity = 1
+        ////                }
+        //            }
     }
 }
 

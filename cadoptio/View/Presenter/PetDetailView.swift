@@ -55,7 +55,8 @@ struct PetDetailView: View {
                             .foregroundStyle(.white))
                 }
                 .sheet(isPresented: $showingSheet, content: {
-                    SpinnerView()
+//                    SpinnerView()
+                    CircleAnimationView()
                 })
                 .padding()
                 Spacer()
@@ -83,14 +84,14 @@ struct PetDetailView: View {
                 
             }
             .symbolEffect(.pulse, value: isFavorite)
-//            .simultaneousGesture(LongPressGesture().onEnded { _ in
-//                isFavorite.toggle()
-//                isLoveAppear = isFavorite
-//                withAnimation {
-//                    complexSuccess()
-//                    loveIcon = isFavorite ? "heart.fill" : "heart"
-//                }
-//            })
+            .simultaneousGesture(LongPressGesture().onEnded { _ in
+                isFavorite.toggle()
+                isLoveAppear = isFavorite
+                withAnimation {
+                    complexSuccess()
+                    loveIcon = isFavorite ? "heart.fill" : "heart"
+                }
+            })
             .sensoryFeedback(.success, trigger: isFavorite)
             .onAppear{
                 prepareHaptics()
