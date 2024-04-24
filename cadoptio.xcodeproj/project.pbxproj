@@ -19,6 +19,8 @@
 		4E1B50692BD5D91700D9C1D6 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */; };
 		4E1B506B2BD5DB5400D9C1D6 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B506A2BD5DB5400D9C1D6 /* CircleAnimationView.swift */; };
 		4E1B506D2BD5DF3100D9C1D6 /* PetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */; };
+		4E1B50772BD7B19D00D9C1D6 /* PetOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50762BD7B19D00D9C1D6 /* PetOwnerView.swift */; };
+		4E1B50792BD7B3F900D9C1D6 /* PetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50782BD7B3F900D9C1D6 /* PetInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		4E1B506A2BD5DB5400D9C1D6 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardView.swift; sourceTree = "<group>"; };
+		4E1B50762BD7B19D00D9C1D6 /* PetOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetOwnerView.swift; sourceTree = "<group>"; };
+		4E1B50782BD7B3F900D9C1D6 /* PetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		4E1B50752BD5E09200D9C1D6 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4E1B50762BD7B19D00D9C1D6 /* PetOwnerView.swift */,
+				4E1B50782BD7B3F900D9C1D6 /* PetInfoView.swift */,
 				4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */,
 				4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */,
 			);
@@ -197,9 +203,11 @@
 				465612982BAD576C00A51350 /* PetAdoptionView.swift in Sources */,
 				4E1B506B2BD5DB5400D9C1D6 /* CircleAnimationView.swift in Sources */,
 				4E1B505D2BD1F08500D9C1D6 /* PetDetailView.swift in Sources */,
+				4E1B50772BD7B19D00D9C1D6 /* PetOwnerView.swift in Sources */,
 				4E1B50672BD5D8E700D9C1D6 /* BasicShapes.swift in Sources */,
 				469512A62BB124B90075B74A /* FilterView.swift in Sources */,
 				4E1B505F2BD5D57900D9C1D6 /* PetModel.swift in Sources */,
+				4E1B50792BD7B3F900D9C1D6 /* PetInfoView.swift in Sources */,
 				4E1B50652BD5D87200D9C1D6 /* CustomHeartShape.swift in Sources */,
 				4E1B50692BD5D91700D9C1D6 /* SpinnerView.swift in Sources */,
 				465612962BAD576C00A51350 /* cadoptioApp.swift in Sources */,
@@ -336,7 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = JSB449F8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -365,7 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = JSB449F8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

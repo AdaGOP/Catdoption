@@ -10,7 +10,7 @@ import SwiftUI
 struct PetAdoptionView: View {
     
     @State private var isFilterViewPresented = false
-    let petData = PetModel().getPetData()
+    let petData = PetModel.getPetData()
     
     var body: some View {
         NavigationStack {

@@ -8,23 +8,23 @@
 import Foundation
 
 struct PetModel: Hashable {
-    var name: String?
-    var breed: String?
-    var distance: Double?
-    var weight: String?
-    var gender: String?
-    var imageName: String?
+    var name: String
+    var breed: String
+    var distance: Double
+    var weight: String
+    var gender: String
+    var imageName: String
     
-    init(name: String? = nil, breed: String? = nil, distance: Double? = nil, weight: String? = nil, gender: String? = nil, imageName: String? = nil) {
-        self.name = name
-        self.breed = breed
-        self.distance = distance
-        self.weight = weight
-        self.gender = gender
-        self.imageName = imageName
-    }
+//    init(name: String? = nil, breed: String? = nil, distance: Double? = nil, weight: String? = nil, gender: String? = nil, imageName: String? = nil) {
+//        self.name = name
+//        self.breed = breed
+//        self.distance = distance
+//        self.weight = weight
+//        self.gender = gender
+//        self.imageName = imageName
+//    }
     
-    func getPetData() -> [PetModel] {
+    static func getPetData() -> [PetModel] {
         return [
             PetModel(name: "Leppy", breed: "Domestic", distance: 1, weight: "3 kg", gender: "Female", imageName: "Leppy"),
             PetModel(name: "Butet", breed: "Persian", distance: 3.5, weight: "4,8 kg", gender: "Female", imageName: "Butet"),

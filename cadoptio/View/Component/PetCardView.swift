@@ -13,72 +13,75 @@ struct PetCardView: View {
     var onHeartTap: () -> Void
 
     var body: some View {
-        HStack() {
-            Image(pet.imageName ?? "no image")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 100, height: 100)
-                .cornerRadius(8)
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text(pet.name ?? "no name")
-                        .font(.headline)
-                    Spacer()
-                    Button(action: onHeartTap) {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 18, height: 18)
-                            .foregroundColor(.pink)
-                            .font(.title)
+        ZStack() {
+            RoundedRectangle(cornerRadius: 8)
+                .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.2), radius: 4)
+                .frame(maxHeight: 100)
+            HStack {
+                Image(pet.imageName)
+                    .resizable()
+                    .frame(maxWidth: 100, maxHeight: 100)
+                    .scaledToFill()
+                    .cornerRadius(8)
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text(pet.name)
+                            .font(.headline)
+                            .foregroundStyle(.black)
+                        Spacer()
+                        Button(action: onHeartTap) {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 18, height: 18)
+                                .foregroundColor(.pink)
+                                .font(.title)
+                        }
+                    }
+                    Text(pet.breed)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    HStack {
+                        HStack {
+                            Image(systemName: "location.fill")
+                                .resizable()
+                                .foregroundColor(.orange)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 14, height: 14)
+                                .opacity(calculateDistanceOpacity(distance: pet.distance ))
+                            Text(" \(pet.distance , specifier: "%.1f") Km")
+                                .font(.system(size: 12, weight: .regular))
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                        HStack {
+                            Image(systemName: "scalemass.fill")
+                                .resizable()
+                                .foregroundColor(.orange)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 14, height: 14)
+                            Text(pet.weight)
+                                .font(.system(size: 12, weight: .regular))
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                        HStack {
+                            Image(systemName: "pawprint.fill")
+                                .resizable()
+                                .foregroundColor(.orange)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 14, height: 14)
+                            Text(pet.gender)
+                                .font(.system(size: 12, weight: .regular))
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
                     }
                 }
-                Text(pet.breed ?? "no breed")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                HStack {
-                    HStack {
-                        Image(systemName: "location.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                            .opacity(calculateDistanceOpacity(distance: pet.distance ?? 0))
-                        Text(" \(pet.distance ?? 0, specifier: "%.1f") Km")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack {
-                        Image(systemName: "scalemass.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                        Text(pet.weight ?? "9 kg")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack {
-                        Image(systemName: "pawprint.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                        Text(pet.gender ?? "no gender")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
+                .padding(.horizontal, 10.0)
             }
-            .padding(.horizontal, 10.0)
         }
-        .background(Color(.white))
-        .frame(width: .infinity, height: .infinity, alignment: .center)
-        .cornerRadius(8)
-        .shadow(color: .black.opacity(0.2), radius: 4)
     }
     
     func calculateWeightOpacity(weight: Double) -> Double {
