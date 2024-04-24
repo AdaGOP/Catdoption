@@ -80,27 +80,6 @@ struct Leaf: View {
                         .speed(1)
                     ,
                     value: isCurrent)
-            
-            Capsule()
-                .trim(
-                    from: isCurrent ? 0 : 0.2,
-                    to: isCurrent ? 1: 0)
-                .stroke(isCurrent ? Color.red : Color.gray, lineWidth: 5)
-                .offset(x: isCurrent ? 5 : 0, y: isCurrent ? 10 : 70)
-                .scaleEffect(
-                    CGSize(
-                        width: isCurrent ? 1 : 0.7,
-                        height: isCurrent ? 1 : 0.7),
-                    anchor: .center)
-                .opacity( isCurrent ? 0 : 1)
-                .foregroundColor(.white)
-                .frame(width: 20, height: 50, alignment: .center)
-                .rotationEffect(rotation, anchor: .center)
-                .animation(
-                    .easeIn
-                        .speed(1)
-                    ,
-                    value: isCurrent)
         }
     }
 }
