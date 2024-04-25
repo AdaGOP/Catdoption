@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import SwiftData
+
+
 
 @main
 struct cadoptioApp: App {

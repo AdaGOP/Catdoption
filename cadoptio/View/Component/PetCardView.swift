@@ -10,7 +10,8 @@ import SwiftUI
 struct PetCardView: View {
     
     var pet: PetModel
-    var onHeartTap: () -> Void
+    
+    var onHeartTap: (() -> Void)?
 
     var body: some View {
         HStack() {
@@ -24,38 +25,29 @@ struct PetCardView: View {
                     Text(pet.name ?? "no name")
                         .font(.headline)
                     Spacer()
-                    Button(action: onHeartTap) {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 18, height: 18)
-                            .foregroundColor(.pink)
-                            .font(.title)
+                    if let onHeartTap{
+                        Button(action: onHeartTap) {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 18, height: 18)
+                                .foregroundColor(.pink)
+                                .font(.title)
+                        }
                     }
+                    
                 }
                 Text(pet.breed ?? "no breed")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 HStack {
                     HStack {
-                        Image(systemName: "location.fill")
-                            .resizable()
-                            .foregroundColor(.orange)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14)
-                            .opacity(calculateDistanceOpacity(distance: pet.distance ?? 0))
-                        Text(" \(pet.distance ?? 0, specifier: "%.1f") Km")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                    HStack {
                         Image(systemName: "scalemass.fill")
                             .resizable()
                             .foregroundColor(.orange)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 14, height: 14)
-                        Text(pet.weight ?? "9 kg")
+                        Text(pet.weight ?? "Nil")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.gray)
                         Spacer()
@@ -66,7 +58,7 @@ struct PetCardView: View {
                             .foregroundColor(.orange)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 14, height: 14)
-                        Text(pet.gender ?? "no gender")
+                        Text(pet.gender ?? "Nil")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.gray)
                         Spacer()
@@ -79,6 +71,7 @@ struct PetCardView: View {
         .frame(width: .infinity, height: .infinity, alignment: .center)
         .cornerRadius(8)
         .shadow(color: .black.opacity(0.2), radius: 4)
+        .listRowSeparator(.hidden)
     }
     
     func calculateWeightOpacity(weight: Double) -> Double {
@@ -97,3 +90,4 @@ struct PetCardView: View {
         }
     }
 }
+

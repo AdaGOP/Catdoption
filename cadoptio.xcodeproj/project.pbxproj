@@ -13,12 +13,13 @@
 		4656129D2BAD576E00A51350 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4656129C2BAD576E00A51350 /* Preview Assets.xcassets */; };
 		469512A62BB124B90075B74A /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469512A52BB124B90075B74A /* FilterView.swift */; };
 		4E1B505D2BD1F08500D9C1D6 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B505C2BD1F08500D9C1D6 /* PetDetailView.swift */; };
-		4E1B505F2BD5D57900D9C1D6 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B505E2BD5D57900D9C1D6 /* PetModel.swift */; };
+		4E1B505F2BD5D57900D9C1D6 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B505E2BD5D57900D9C1D6 /* Pet.swift */; };
 		4E1B50652BD5D87200D9C1D6 /* CustomHeartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50642BD5D87200D9C1D6 /* CustomHeartShape.swift */; };
 		4E1B50672BD5D8E700D9C1D6 /* BasicShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50662BD5D8E700D9C1D6 /* BasicShapes.swift */; };
 		4E1B50692BD5D91700D9C1D6 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */; };
 		4E1B506B2BD5DB5400D9C1D6 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B506A2BD5DB5400D9C1D6 /* CircleAnimationView.swift */; };
 		4E1B506D2BD5DF3100D9C1D6 /* PetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */; };
+		7D0F81E92BD8FDC20041FC0B /* AddNewPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F81E82BD8FDC20041FC0B /* AddNewPetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +30,13 @@
 		4656129C2BAD576E00A51350 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		469512A52BB124B90075B74A /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		4E1B505C2BD1F08500D9C1D6 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
-		4E1B505E2BD5D57900D9C1D6 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		4E1B505E2BD5D57900D9C1D6 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		4E1B50642BD5D87200D9C1D6 /* CustomHeartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeartShape.swift; sourceTree = "<group>"; };
 		4E1B50662BD5D8E700D9C1D6 /* BasicShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicShapes.swift; sourceTree = "<group>"; };
 		4E1B50682BD5D91700D9C1D6 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		4E1B506A2BD5DB5400D9C1D6 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		4E1B506C2BD5DF3100D9C1D6 /* PetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardView.swift; sourceTree = "<group>"; };
+		7D0F81E82BD8FDC20041FC0B /* AddNewPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,7 @@
 		4E1B50722BD5E02300D9C1D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4E1B505E2BD5D57900D9C1D6 /* PetModel.swift */,
+				4E1B505E2BD5D57900D9C1D6 /* Pet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +112,7 @@
 				465612972BAD576C00A51350 /* PetAdoptionView.swift */,
 				4E1B505C2BD1F08500D9C1D6 /* PetDetailView.swift */,
 				469512A52BB124B90075B74A /* FilterView.swift */,
+				7D0F81E82BD8FDC20041FC0B /* AddNewPetView.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -199,7 +202,8 @@
 				4E1B505D2BD1F08500D9C1D6 /* PetDetailView.swift in Sources */,
 				4E1B50672BD5D8E700D9C1D6 /* BasicShapes.swift in Sources */,
 				469512A62BB124B90075B74A /* FilterView.swift in Sources */,
-				4E1B505F2BD5D57900D9C1D6 /* PetModel.swift in Sources */,
+				7D0F81E92BD8FDC20041FC0B /* AddNewPetView.swift in Sources */,
+				4E1B505F2BD5D57900D9C1D6 /* Pet.swift in Sources */,
 				4E1B50652BD5D87200D9C1D6 /* CustomHeartShape.swift in Sources */,
 				4E1B50692BD5D91700D9C1D6 /* SpinnerView.swift in Sources */,
 				465612962BAD576C00A51350 /* cadoptioApp.swift in Sources */,

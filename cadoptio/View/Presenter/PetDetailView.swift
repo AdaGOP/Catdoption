@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PetDetailView: View {
     var pet: PetModel
@@ -55,9 +56,6 @@ struct PetDetailView: View {
     }
 }
 
-#Preview {
-    PetDetailView(pet: PetModel(name: "Butet", breed: "Domestic", distance: 1, weight: "3 kg", gender: "Female", imageName: "Butet"))
-}
 struct PetInfoItemView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -94,3 +92,19 @@ struct PetOwnerView: View {
         }
     }
 }
+
+#Preview {
+//    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//    let container = try! ModelContainer(for: PetModel.self, configurations: config)
+    
+    return PetDetailView(pet: PetModel(
+        name: "Butet",
+        breed: "Domestic",
+        weight: "3 kg",
+        gender: "Female",
+        imageName: "Butet")
+    )
+    
+}
+
+

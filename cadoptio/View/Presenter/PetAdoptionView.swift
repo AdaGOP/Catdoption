@@ -6,27 +6,41 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PetAdoptionView: View {
     
     @State private var isFilterViewPresented = false
-    let petData = PetModel().getPetData()
+    @State private var isAddNewPetViewPresented = false
     
     var body: some View {
         NavigationStack {
-            List(petData, id: \.self) { pet in
-                PetCardView(pet: pet, onHeartTap: {})
-                    .background {
-                        NavigationLink(destination: PetDetailView(pet: pet)) {
-                            EmptyView()
-                        }
-                    }
-                
-                .listRowSeparator(.hidden)
+            List {
+                PetCardView(pet: PetModel(
+                    name: "Leppy",
+                    breed: "Domestic",
+                    weight: "3 kg",
+                    gender: "Female",
+                    imageName: "Leppy")
+                )
+                PetCardView(pet: PetModel(
+                    name: "Sky",
+                    breed: "Ragdoll",
+                    weight: "5 kg",
+                    gender: "Male",
+                    imageName: "Sky")
+                )
+                //Text("number of pet \(pets.count)")
             }
             .listStyle(.plain)
-            .navigationTitle("Discover")
+            .navigationTitle("My Pet")
             .toolbar {
+                Button(action: {
+                    isAddNewPetViewPresented = true
+                }) {
+                    Image(systemName: "plus")
+                        .foregroundColor(.orange)
+                }
                 Button(action: {
                     isFilterViewPresented = true
                 }) {
@@ -37,12 +51,18 @@ struct PetAdoptionView: View {
             .sheet(isPresented: $isFilterViewPresented) {
                 FilterView()
             }
+            .sheet(isPresented: $isAddNewPetViewPresented) {
+                AddNewPetView()
+            }
         }
     }
 }
 
 struct PetAdoptionView_Previews: PreviewProvider {
     static var previews: some View {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try! ModelContainer(for: PetModel.self, configurations: config)
+        
         PetAdoptionView()
     }
 }
