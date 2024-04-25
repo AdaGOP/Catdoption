@@ -15,7 +15,7 @@ struct CircleAnimationView: View {
         //        BouncingCircleView()
         Circle()
             .opacity(currentOpacity)
-            .frame(width: 50, height: 50)
+//            .frame(width: 50, height: 50)
             .offset(offset)
             .animation(
                 .easeInOut(duration: 2.0),
@@ -36,11 +36,11 @@ struct CircleAnimationView: View {
                         currentOpacity = 1
                     }))
             )
-        //            .onTapGesture {
-        ////                withAnimation(.easeInOut(duration: 2.0)) {
-        //                    currentOpacity = 1
-        ////                }
-        //            }
+                    .onTapGesture {
+        //                withAnimation(.easeInOut(duration: 2.0)) {
+                            currentOpacity = 1
+        //                }
+                    }
     }
 }
 
