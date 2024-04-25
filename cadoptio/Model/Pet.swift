@@ -8,8 +8,9 @@
 import Foundation
 import SwiftData
 
-
-struct PetModel{
+@Model
+class PetModel: Identifiable,Hashable{
+    var id = UUID()
     var name: String? = ""
     var breed: String? = ""
     var weight: String? = ""

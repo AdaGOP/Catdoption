@@ -10,27 +10,20 @@ import SwiftData
 
 struct PetAdoptionView: View {
     
+    @Environment(\.modelContext) var context
     @State private var isFilterViewPresented = false
     @State private var isAddNewPetViewPresented = false
+    
+    
+    @Query var pets: [PetModel]
     
     var body: some View {
         NavigationStack {
             List {
-                PetCardView(pet: PetModel(
-                    name: "Leppy",
-                    breed: "Domestic",
-                    weight: "3 kg",
-                    gender: "Female",
-                    imageName: "Leppy")
-                )
-                PetCardView(pet: PetModel(
-                    name: "Sky",
-                    breed: "Ragdoll",
-                    weight: "5 kg",
-                    gender: "Male",
-                    imageName: "Sky")
-                )
-                //Text("number of pet \(pets.count)")
+                ForEach(pets){pet in
+                    PetCardView(pet: pet)
+                }
+                .onDelete(perform: delete)
             }
             .listStyle(.plain)
             .navigationTitle("My Pet")
@@ -56,12 +49,19 @@ struct PetAdoptionView: View {
             }
         }
     }
+    
+    func delete(at offsets: IndexSet){
+        for offset in offsets{
+            let pet = pets[offset]
+            context.delete(pet)
+        }
+    }
 }
 
 struct PetAdoptionView_Previews: PreviewProvider {
     static var previews: some View {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try! ModelContainer(for: PetModel.self, configurations: config)
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: PetModel.self, configurations: config)
         
         PetAdoptionView()
     }

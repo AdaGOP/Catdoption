@@ -16,5 +16,8 @@ struct cadoptioApp: App {
         WindowGroup {
             PetAdoptionView()
         }
+        .modelContainer(for: [
+            PetModel.self
+        ])
     }
 }

@@ -54,7 +54,9 @@ struct AddNewPetView: View{
     }
     
     func saveNewPet(){
-        
+        let newPet = PetModel(name: petName, breed: petBreed, weight: petWeight, gender: petGender, imageName: "")
+        context.insert(newPet)
+        dismiss()
     }
 }
 
