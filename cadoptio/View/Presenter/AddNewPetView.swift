@@ -5,14 +5,16 @@
 //  Created by octavianus on 24/04/24.
 //
 
-import Foundation
 import SwiftUI
-import SwiftData
+// STEP 9: Import SwiftData library
+/// Your code will be here
 
 
 struct AddNewPetView: View{
     @Environment(\.dismiss) var dismiss
-    @Environment(\.modelContext) var context
+    
+    // STEP 10: Provide SwiftData model context using @Environment
+    /// Your code will be here
     
     @State var petName: String = ""
     @State var petGender: String = ""
@@ -38,7 +40,8 @@ struct AddNewPetView: View{
                 .pickerStyle(.navigationLink)
             }
             Button(action: {
-               saveNewPet()
+                // STEP 12: Call saveNewPet() function
+                /// Your code will be here
                 dismiss()
             }) {
                 Text("Save")
@@ -52,12 +55,9 @@ struct AddNewPetView: View{
            
         }
     }
-    
-    func saveNewPet(){
-        let newPet = PetModel(name: petName, breed: petBreed, weight: petWeight, gender: petGender, imageName: "")
-        context.insert(newPet)
-        dismiss()
-    }
+    // STEP 11: Create a function saveNewPet() to save a new pet data from each field using the defined context above
+    /// Your code will be here
+   
 }
 
 #Preview {

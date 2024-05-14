@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
-import SwiftData
+// STEP 6: Import SwiftData library
+/// Your code will be here
 
 struct PetAdoptionView: View {
     
-    @Environment(\.modelContext) var context
+    // STEP 7: Provide SwiftData model context using @Environment
+    /// Your code will be here
     @State private var isFilterViewPresented = false
     @State private var isAddNewPetViewPresented = false
     
-    
-    @Query var pets: [PetModel]
+    // STEP 8: Prepare SwiftData model to be accessed using @Query
+    /// Your code will be here
+    var pets: [PetModel] = [
+        PetModel(name: "Leppy", breed: "Domestic", weight: "3 kg", gender: "Female", imageName: "Leppy"),
+        PetModel(name: "Butet", breed: "Persian", weight: "4,8 kg", gender: "Female", imageName: "Butet"),
+        PetModel(name: "Sky", breed: "Ragdoll", weight: "5 kg", gender: "Male", imageName: "Sky"),
+        PetModel(name: "Kentang", breed: "Himalayan", weight: "2 kg", gender: "Male", imageName: "Kentang")
+    ]
     
     var body: some View {
         NavigationStack {
@@ -23,7 +31,9 @@ struct PetAdoptionView: View {
                 ForEach(pets){pet in
                     PetCardView(pet: pet)
                 }
-                .onDelete(perform: delete)
+                // STEP 14: Add modifier to perform delete function
+                /// Your code will be here
+        
             }
             .listStyle(.plain)
             .navigationTitle("My Pet")
@@ -50,19 +60,16 @@ struct PetAdoptionView: View {
         }
     }
     
-    func delete(at offsets: IndexSet){
-        for offset in offsets{
-            let pet = pets[offset]
-            context.delete(pet)
-        }
-    }
+    // STEP 13: Create a function deletePet() to delete a pet data using the defined context above
+    /// Your code will be here
+    
 }
 
 struct PetAdoptionView_Previews: PreviewProvider {
     static var previews: some View {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(for: PetModel.self, configurations: config)
         
+        // STEP 14: Configure the preview with the provided SwiftData model
+        /// Your code will be here
         PetAdoptionView()
     }
 }

@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import SwiftData
-
-
+// STEP 3: Import SwiftData library
+/// Your code will be here
 
 @main
 struct cadoptioApp: App {
@@ -16,8 +15,9 @@ struct cadoptioApp: App {
         WindowGroup {
             PetAdoptionView()
         }
-        .modelContainer(for: [
-            PetModel.self
-        ])
+        // STEP 4: Connect SwiftData into View
+        /// Your code will be here
+        // STEP 5: Specify your own model to SwiftData
+        /// Your code will be here
     }
 }

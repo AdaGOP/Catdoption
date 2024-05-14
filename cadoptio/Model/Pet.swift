@@ -6,18 +6,19 @@
 //
 
 import Foundation
-import SwiftData
+// STEP 1: Import SwiftData library
+/// Your code will be here
 
-@Model
-class PetModel: Identifiable,Hashable{
-    var id = UUID()
+// STEP 2: Mark class below as SwiftData model
+/// Your code will be here
+class PetModel: Identifiable {
     var name: String? = ""
     var breed: String? = ""
     var weight: String? = ""
     var gender: String? = ""
     var imageName: String? = ""
     
-    init(id: UUID = UUID(), name: String, breed: String, weight: String, gender: String, imageName: String) {
+    init(name: String, breed: String, weight: String, gender: String, imageName: String) {
         self.name = name
         self.breed = breed
         self.weight = weight
