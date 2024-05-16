@@ -64,5 +64,6 @@ struct PetAdoptionView_Previews: PreviewProvider {
         let container = try! ModelContainer(for: PetModel.self, configurations: config)
         
         PetAdoptionView()
+            .modelContainer(container)
     }
 }
