@@ -12,6 +12,7 @@
 		4656129A2BAD576E00A51350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465612992BAD576E00A51350 /* Assets.xcassets */; };
 		4656129D2BAD576E00A51350 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4656129C2BAD576E00A51350 /* Preview Assets.xcassets */; };
 		469512A62BB124B90075B74A /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469512A52BB124B90075B74A /* FilterView.swift */; };
+		5BE8536C2D9170D300251B54 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8536B2D9170CE00251B54 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		465612992BAD576E00A51350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4656129C2BAD576E00A51350 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		469512A52BB124B90075B74A /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		5BE8536B2D9170CE00251B54 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				465612952BAD576C00A51350 /* cadoptioApp.swift */,
 				465612972BAD576C00A51350 /* PetAdoptionView.swift */,
 				469512A52BB124B90075B74A /* FilterView.swift */,
+				5BE8536B2D9170CE00251B54 /* DetailView.swift */,
 				465612992BAD576E00A51350 /* Assets.xcassets */,
 				4656129B2BAD576E00A51350 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				465612982BAD576C00A51350 /* PetAdoptionView.swift in Sources */,
 				469512A62BB124B90075B74A /* FilterView.swift in Sources */,
+				5BE8536C2D9170D300251B54 /* DetailView.swift in Sources */,
 				465612962BAD576C00A51350 /* cadoptioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = 4H3L55V83P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -305,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = 4H3L55V83P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

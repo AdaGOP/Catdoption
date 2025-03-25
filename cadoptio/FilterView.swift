@@ -1,7 +1,12 @@
 import SwiftUI
+import Observation
 
 struct FilterView: View {
     @Environment(\.dismiss) var dismiss
+    
+    var minWeight: Double = 0.0
+    var maxWeight: Double = 0.0
+    @Binding var filterModel: FilterModel
     
     @State private var filtersSelectedCount = 0
     
@@ -41,6 +46,16 @@ struct FilterView: View {
                     .onChange(of: pedigreeTapCount) {
                         self.updateTotalFiltersCount()
                     }
+                Group {
+                    HStack {
+                        Text("Weights")
+                            .font(.headline)
+                        Spacer()
+                        Text("\(String(format: "%.1f", filterModel.maxWeightValue)) kg")
+                    }
+                    Slider(value: $filterModel.maxWeightValue, in: minWeight...maxWeight)
+                }
+                .padding(.horizontal, 16)
                 // Add more buttons as necessary
             }
             .padding(.top, 12)
@@ -69,6 +84,15 @@ struct FilterView: View {
     }
 }
 
+@Observable
+class FilterModel {
+    var maxWeightValue: Double
+    
+    init(maxWeightValue: Double) {
+        self.maxWeightValue = maxWeightValue
+    }
+}
+
 struct FilterButton: View {
     var segmentTitle: String
     var itemTitle: String
@@ -90,12 +114,5 @@ struct FilterButton: View {
             }
         }
         .padding(.horizontal)
-    }
-}
-
-
-struct FilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterView()
     }
 }

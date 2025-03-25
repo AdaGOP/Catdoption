@@ -10,18 +10,36 @@ import SwiftUI
 struct PetAdoptionView: View {
     
     @State private var isFilterViewPresented = false
+    @State private var searchText: String = ""
+    @State private var filterModel: FilterModel = FilterModel(maxWeightValue: PetData.maxWeight())
+    @State private var showDetailPage: Bool = false
+    
+    var filteredData: [PetModel] {
+        allData
+            .filter { $0.weight <= filterModel.maxWeightValue }
+            .filter { searchText.isEmpty || $0.name.contains(searchText) }
+    }
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 16) {
-                PetCard(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male")
-                    .shadow(radius: 10)
-                PetCard(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female")
-                    .shadow(radius: 10)
-                PetCard(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female")
-                    .shadow(radius: 10)
-                PetCard(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")
-                    .shadow(radius: 10)
+                if filteredData.isEmpty {
+                    Text("No result found")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                }
+                else {
+                    ForEach(filteredData, id: \.name) { model in
+                        NavigationLink(destination: DetailView()) {
+                            PetCard(model: model)
+                                .shadow(radius: 10)
+                                .onTapGesture {
+                                    showDetailPage.toggle()
+                                }
+                                .sensoryFeedback(.success, trigger: showDetailPage)
+                        }
+                    }
+                }
                 Spacer()
             }
             .padding(16)
@@ -34,25 +52,28 @@ struct PetAdoptionView: View {
                         .foregroundColor(.orange)
                 }
             }
+            
             .sheet(isPresented: $isFilterViewPresented) {
-                FilterView()
+                FilterView(minWeight: PetData.minWeight(),
+                           maxWeight: PetData.maxWeight(),
+                           filterModel: $filterModel)
             }
         }
+        .searchable(text: $searchText)
     }
+    
+    // MARK: private properties
+    private let allData: [PetModel] = PetData.generatePets()
 }
 
 struct PetCard: View {
-    let name: String
-    let type: String
-    let distance: Double
-    let weight: Double
-    let gender: String
+    let model: PetModel
     
     var body: some View {
         HStack {
             ImageView(imageName: "placeholder")
                 .background(Color(.white))
-            PetInfo(type: type, name: name, distance: distance, weight: weight, gender: gender)
+            PetInfo(type: model.type, name: model.name, distance: model.distance, weight: model.weight, gender: model.gender)
                 .padding(.horizontal, 10.0)
         }
         .frame(height: 120)
@@ -143,5 +164,30 @@ struct ImageView: View {
 struct PetAdoptionView_Previews: PreviewProvider {
     static var previews: some View {
         PetAdoptionView()
+    }
+}
+
+struct PetModel {
+    let name: String
+    let type: String
+    let distance: Double
+    let weight: Double
+    let gender: String
+}
+
+final class PetData {
+    static func generatePets() -> [PetModel] {
+        return [PetModel(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male"),
+                PetModel(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female"),
+                PetModel(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female"),
+                PetModel(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")]
+    }
+    
+    static func minWeight() -> Double {
+        return generatePets().map { $0.weight }.min() ?? 0.0
+    }
+    
+    static func maxWeight() -> Double {
+        return generatePets().map { $0.weight }.max() ?? 0.0
     }
 }
