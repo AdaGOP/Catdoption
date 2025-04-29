@@ -9,7 +9,22 @@ import SwiftUI
 
 struct CatCornerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView(.vertical) {
+                Image("promo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(alignment: .top)
+                    .padding(.top, -160)
+                NewComerCard(cats: PetData.generatePets())
+                Divider()
+                ShelterCard(cats: PetData.generatePets())
+                Divider()
+            }
+            .navigationBarTitle("Cat Corner")
+        }
+       
+       
     }
 }
 

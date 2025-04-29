@@ -167,7 +167,9 @@ struct PetAdoptionView_Previews: PreviewProvider {
     }
 }
 
-struct PetModel {
+public struct PetModel {
+    let id = UUID()
+    let image: String?
     let name: String
     let type: String
     let distance: Double
@@ -177,10 +179,10 @@ struct PetModel {
 
 final class PetData {
     static func generatePets() -> [PetModel] {
-        return [PetModel(name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male"),
-                PetModel(name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female"),
-                PetModel(name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female"),
-                PetModel(name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")]
+        return [PetModel(image: "leppy", name: "Leppy", type: "Domestic", distance: 1.0, weight: 3.0, gender: "Male"),
+                PetModel(image: "butet", name: "Butet", type: "Persian", distance: 3.5, weight: 5.0, gender: "Female"),
+                PetModel(image: "sky", name: "Sky", type: "Domestic", distance: 8.5, weight: 4.9, gender: "Female"),
+                PetModel(image: "kentang", name: "Kentang", type: "British Shorthair", distance: 8.5, weight: 4.2, gender: "Female")]
     }
     
     static func minWeight() -> Double {
