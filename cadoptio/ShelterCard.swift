@@ -15,22 +15,31 @@ struct ShelterCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            CardNavigationHeader(panel: .shelter, navigation: navigation) {
-                Label("Adoption Near You", systemImage: "house.circle")
-                    .foregroundStyle(.orange)
-            }
-            ScrollView(.horizontal) {
-                HStack(spacing: 0) {
-                    ForEach(shelters, id: \.name) { shelter in
-                        ShelterView(shelter: shelter)
-                            .id(shelter.id)
-                    }
-                    .listStyle(.plain)
-                    .safeAreaPadding(.horizontal)
+            VStack {
+                CardNavigationHeader(panel: .shelter, navigation: navigation) {
+                    Label("Adoption Near You", systemImage: "house.circle")
+                        .foregroundStyle(.orange)
                 }
+                ScrollView(.horizontal) {
+                    HStack(spacing: 0) {
+                        ForEach(shelters, id: \.name) { shelter in
+                            ShelterView(shelter: shelter)
+                                .id(shelter.id)
+                        }
+                        .listStyle(.plain)
+                        .safeAreaPadding(.horizontal)
+                    }
+                    .padding()
+                    
+                }
+                .scrollClipDisabled()
             }
-            .scrollClipDisabled()
-            
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Color(.systemBackground).opacity(0.95))
+                    .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
+            )
         }
         .padding(10)
         .clipShape(ContainerRelativeShape())

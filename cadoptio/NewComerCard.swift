@@ -25,7 +25,7 @@ struct NewComerCard: View {
             CardNavigationHeader(panel: .newComer, navigation: navigation) {
                 Label("New Comer", systemImage: "cat")
                     .foregroundStyle(.orange)
-            }
+            }.padding()
             if #available(iOS 18.0, *) {
                 ScrollView(.horizontal) {
                     HStack(spacing: 0) {
@@ -62,6 +62,11 @@ struct NewComerCard: View {
                 .scrollClipDisabled()
             }
         }
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color(.systemBackground).opacity(0.95))
+                .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
+        )
         .padding(10)
         .clipShape(ContainerRelativeShape())
     }

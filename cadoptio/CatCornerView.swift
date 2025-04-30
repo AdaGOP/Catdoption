@@ -20,6 +20,9 @@ struct CatCornerView: View {
                 Divider()
                 ShelterCard(shelters: ShelterModel.generateShelterData)
                 Divider()
+                ShelterChartView()
+                Divider()
+                TestimoniCardView()
             }
             .navigationBarTitle("Cat Corner")
         }
