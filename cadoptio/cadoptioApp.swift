@@ -11,7 +11,7 @@ import SwiftUI
 struct cadoptioApp: App {
     var body: some Scene {
         WindowGroup {
-            PetAdoptionView()
+            CatCornerView()
         }
     }
 }
