@@ -18,7 +18,7 @@ struct CatCornerView: View {
                     .padding(.top, -160)
                 NewComerCard(cats: PetData.generatePets())
                 Divider()
-                ShelterCard(cats: PetData.generatePets())
+                ShelterCard(shelters: ShelterModel.generateShelterData)
                 Divider()
             }
             .navigationBarTitle("Cat Corner")

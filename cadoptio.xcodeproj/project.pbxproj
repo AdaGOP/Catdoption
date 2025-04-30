@@ -21,6 +21,7 @@
 		F7D8BE3B2DC0E83600FA0B76 /* NewComerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D8BE3A2DC0E83300FA0B76 /* NewComerView.swift */; };
 		F7E011392DC187800062EC14 /* ShelterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E011382DC187790062EC14 /* ShelterView.swift */; };
 		F7E0113B2DC188590062EC14 /* ShelterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E0113A2DC188550062EC14 /* ShelterCard.swift */; };
+		F7EA78C22DC1AC1700073DC5 /* ShelterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA78C12DC1AC1400073DC5 /* ShelterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F7D8BE3A2DC0E83300FA0B76 /* NewComerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewComerView.swift; sourceTree = "<group>"; };
 		F7E011382DC187790062EC14 /* ShelterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterView.swift; sourceTree = "<group>"; };
 		F7E0113A2DC188550062EC14 /* ShelterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterCard.swift; sourceTree = "<group>"; };
+		F7EA78C12DC1AC1400073DC5 /* ShelterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				F7D8BE362DC0E3A200FA0B76 /* CardHeaderNavigation.swift */,
 				465612952BAD576C00A51350 /* cadoptioApp.swift */,
 				465612972BAD576C00A51350 /* PetAdoptionView.swift */,
+				F7EA78C12DC1AC1400073DC5 /* ShelterModel.swift */,
 				469512A52BB124B90075B74A /* FilterView.swift */,
 				5BE8536B2D9170CE00251B54 /* DetailView.swift */,
 				F7CF16552DC0A30000043D36 /* CatCornerView.swift */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EA78C22DC1AC1700073DC5 /* ShelterModel.swift in Sources */,
 				F7D8BE372DC0E3A600FA0B76 /* CardHeaderNavigation.swift in Sources */,
 				465612982BAD576C00A51350 /* PetAdoptionView.swift in Sources */,
 				F7E011392DC187800062EC14 /* ShelterView.swift in Sources */,

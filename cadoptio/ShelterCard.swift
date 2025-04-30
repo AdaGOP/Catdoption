@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ShelterCard: View {
-    var cats: [PetModel]
+    var shelters: [ShelterModel]
     var navigation: CardHeaderNavigation = .navigationLink
     
     @State private var pulseOrderText = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            CardNavigationHeader(panel: .newComer, navigation: navigation) {
+            CardNavigationHeader(panel: .shelter, navigation: navigation) {
                 Label("Adoption Near You", systemImage: "house.circle")
                     .foregroundStyle(.orange)
             }
             ScrollView(.horizontal) {
                 HStack(spacing: 0) {
-                    ForEach(cats, id: \.name) { cat in
-                        ShelterView(cat: cat)
-                            .id(cat.id)
+                    ForEach(shelters, id: \.name) { shelter in
+                        ShelterView(shelter: shelter)
+                            .id(shelter.id)
                     }
                     .listStyle(.plain)
                     .safeAreaPadding(.horizontal)
@@ -41,7 +41,7 @@ struct ShelterCard: View {
 struct ShelterCard_Previews: PreviewProvider {
     struct Preview: View {
         var body: some View {
-            ShelterCard(cats: PetData.generatePets())
+            ShelterCard(shelters: ShelterModel.generateShelterData)
         }
     }
     

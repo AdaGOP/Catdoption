@@ -14,7 +14,7 @@ enum Panel: Hashable {
     /// The value for the ``NewComerView``.
     case newComer
     /// The value for the ``AdoptionNearYouView``.
-    case adoptionNearYou
+    case shelter
     /// The value for the ``TestimoniView``.
     case testimoni
 }
@@ -38,7 +38,7 @@ struct Sidebar: View {
                 Label("New Comer", systemImage: "box.truck")
             }
             
-            NavigationLink(value: Panel.adoptionNearYou) {
+            NavigationLink(value: Panel.shelter) {
                 Label("Adoption Near You", systemImage: "shippingbox")
             }
             

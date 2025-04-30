@@ -8,19 +8,18 @@
 import SwiftUI
 
 public struct ShelterView: View {
-    var cat: PetModel
+    var shelter: ShelterModel
     
-    public init(cat: PetModel) {
-        self.cat = cat
+    public init(shelter: ShelterModel) {
+        self.shelter = shelter
     }
-
+    
     public var body: some View {
-        Image(cat.image ?? "placeholder")
+        Image(shelter.image ?? "placeholder")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 70, height: 100)
             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
-           
     }
 }
 
@@ -28,9 +27,26 @@ struct ShelterView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Group {
-                ShelterView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
-                ShelterView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
-                ShelterView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
+                ShelterView(shelter: .init(
+                    image: "shelter-budi",
+                    name: "Budi Cat Shelter",
+                    address: "Jakarta Selatan",
+                    distance: 50))
+                ShelterView(shelter: .init(
+                    image: "shelter-catrescue",
+                    name: "Cat Rescue Shelter",
+                    address: "Tangerang Selatan",
+                    distance: 20))
+                ShelterView(shelter: .init(
+                    image: "shelter-halocat",
+                    name: "Halo Cat Adoption Shelter",
+                    address: "Bandung",
+                    distance: 100))
+                ShelterView(shelter: .init(
+                    image: "shelter-popo",
+                    name: "Popo Cat Shelter",
+                    address: "Jakarta Timur",
+                    distance: 300))
             }
             .frame(width: 120, height: 120)
             .border(.quaternary)
