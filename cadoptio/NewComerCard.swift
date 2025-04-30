@@ -40,7 +40,6 @@ struct NewComerCard: View {
                 .scrollClipDisabled()
                 .scrollPosition($scrollPosition)
                 .onReceive(timer) {_ in
-                    
                     if xPosition >= (NewComerView.itemSize.width) * CGFloat(cats.count) {
                         xPosition = 0
                     } else {
