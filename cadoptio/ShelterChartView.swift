@@ -6,13 +6,45 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ShelterChartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+           
+            Label("Adoption Rates Among Shelter Cats", systemImage: "chart.line.uptrend.xyaxis")
+                .font(.headline)
+            
+            Chart {
+                ForEach(ShelterAdoption.getSampleData()) { dataPoint in
+                    LineMark(
+                        x: .value("Year", dataPoint.year),
+                        y: .value("Adoption Rate", dataPoint.adoptionRate)
+                    )
+                    .foregroundStyle(by: .value("Breed", dataPoint.breed))
+                    .symbol(by: .value("Breed", dataPoint.breed))
+                }
+            }
+            .chartYAxisLabel("Adoption Rate (%)")
+            .chartLegend(position: .bottom)
+            .frame(height: 300)
+            
+            Text("* Data reflects shelter cat adoptions from 2021 with forecasting for 2025")
+                .font(.footnote)
+                .foregroundColor(.gray)
+                .padding(.top, 8)
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color(.systemBackground).opacity(0.95))
+                .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
+        )
+        .padding([.horizontal, .top])
     }
 }
 
 #Preview {
     ShelterChartView()
 }
+
