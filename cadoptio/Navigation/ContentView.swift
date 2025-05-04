@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selection: Panel? = .catCorner
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationSplitView {
+            Sidebar(selection: $selection)
+        } detail: {
+            NavigationStack {
+                CatCornerView()
+            }
+        }
     }
 }
 

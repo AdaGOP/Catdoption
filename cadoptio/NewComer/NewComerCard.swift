@@ -30,7 +30,7 @@ struct NewComerCard: View {
                 ScrollView(.horizontal) {
                     HStack(spacing: 0) {
                         ForEach(cats, id: \.name) { cat in
-                            NewComerView(cat: cat)
+                            NewComerItemView(cat: cat)
                                 .id(cat.id)
                         }
                         .listStyle(.plain)
@@ -40,7 +40,7 @@ struct NewComerCard: View {
                 .scrollClipDisabled()
                 .scrollPosition($scrollPosition)
                 .onReceive(timer) {_ in
-                    if xPosition >= (NewComerView.itemSize.width) * CGFloat(cats.count) {
+                    if xPosition >= (NewComerItemView.itemSize.width) * CGFloat(cats.count) {
                         xPosition = 0
                     } else {
                         xPosition += 0.5
@@ -53,7 +53,7 @@ struct NewComerCard: View {
                 ScrollView(.horizontal) {
                     HStack {
                         ForEach(cats, id: \.name) { cat in
-                            NewComerView(cat: cat)
+                            NewComerItemView(cat: cat)
                         }
                         .listStyle(.plain)
                         .safeAreaPadding(.horizontal)

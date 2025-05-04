@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct DetailColumn: View {
+    
+    @Binding var selection: Panel?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        switch selection ?? .catCorner {
+        case .catCorner:
+            CatCornerView()
+        case .newComer:
+            CatCornerView()
+        case .shelter:
+            CatCornerView()
+        case .testimoni:
+            CatCornerView()
+        }
     }
 }
 
-#Preview {
-    DetailColumn()
+struct DetailColumn_Previews: PreviewProvider {
+    struct Preview: View {
+        
+        @State private var selection: Panel? = .catCorner
+        
+        var body: some View {
+            DetailColumn(selection: $selection)
+        }
+    }
+    
+    static var previews: some View {
+        Preview()
+    }
+
 }
