@@ -28,6 +28,7 @@
 		4EE2CC8C2DC7413500AFA974 /* Shelter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shelter; sourceTree = "<group>"; };
 		4EE2CC8D2DC7416A00AFA974 /* AdoptionRate */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdoptionRate; sourceTree = "<group>"; };
 		4EE2CC8E2DC7418700AFA974 /* Testimoni */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Testimoni; sourceTree = "<group>"; };
+		4EE2CC932DC7483600AFA974 /* Extension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extension; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 				4EE2CC8D2DC7416A00AFA974 /* AdoptionRate */,
 				4EE2CC8E2DC7418700AFA974 /* Testimoni */,
 				4EE2CC802DC73D2F00AFA974 /* General */,
+				4EE2CC932DC7483600AFA974 /* Extension */,
 				4EE2CC7F2DC73D0300AFA974 /* Old */,
 				465612992BAD576E00A51350 /* Assets.xcassets */,
 				4656129B2BAD576E00A51350 /* Preview Content */,
@@ -110,6 +112,7 @@
 				4EE2CC8C2DC7413500AFA974 /* Shelter */,
 				4EE2CC8D2DC7416A00AFA974 /* AdoptionRate */,
 				4EE2CC8E2DC7418700AFA974 /* Testimoni */,
+				4EE2CC932DC7483600AFA974 /* Extension */,
 			);
 			name = cadoptio;
 			productName = cadoptio;
@@ -299,7 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = 4H3L55V83P;
+				DEVELOPMENT_TEAM = JSB449F8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -312,9 +315,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidgun.cadoptio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cadoptio/Preview Content\"";
-				DEVELOPMENT_TEAM = 4H3L55V83P;
+				DEVELOPMENT_TEAM = JSB449F8V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -342,9 +349,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidgun.cadoptio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

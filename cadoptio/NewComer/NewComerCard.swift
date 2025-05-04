@@ -64,7 +64,7 @@ struct NewComerCard: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color(.systemBackground).opacity(0.95))
+                .fill(Color.adaptiveSystemBackground.opacity(0.95))
                 .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
         )
         .padding(10)

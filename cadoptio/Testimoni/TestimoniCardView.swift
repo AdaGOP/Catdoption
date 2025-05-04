@@ -12,7 +12,7 @@ struct TestimoniCardView: View {
         "Loved the staff", "Smooth process", "Would adopt again", "Healthy kittens",
         "Great communication",  "Clean shelter",
         "Easy paperwork", "Friendly volunteers", "Quick adoption",
-        "Transparent info", "Highly recommended"
+        "Transparent info", "Highly recommended", "Stressed-out", "Purrfect match", "Cuddly kittens", "Adopted from a shelter", "Adopted from a rescue group", "Sick kittens", "Happy kittens"
     ]
     
     var body: some View {
@@ -25,7 +25,7 @@ struct TestimoniCardView: View {
                     Text(tag)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color(.systemGray6))
+                        .background(Color.adaptiveSystemGray6)
                         .clipShape(Capsule())
                 }
             }
@@ -34,7 +34,7 @@ struct TestimoniCardView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color(.systemBackground))
+                .fill(Color.adaptiveSystemBackground.opacity(0.95))
                 .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 3)
         )
         .padding(.horizontal)

@@ -16,11 +16,11 @@ struct DetailColumn: View {
         case .catCorner:
             CatCornerView()
         case .newComer:
-            CatCornerView()
+            NewComerView()
         case .shelter:
-            CatCornerView()
+            ShelterView()
         case .testimoni:
-            CatCornerView()
+            TestimoniView()
         }
     }
 }
@@ -28,7 +28,7 @@ struct DetailColumn: View {
 struct DetailColumn_Previews: PreviewProvider {
     struct Preview: View {
         
-        @State private var selection: Panel? = .catCorner
+        @State private var selection: Panel? = .shelter
         
         var body: some View {
             DetailColumn(selection: $selection)

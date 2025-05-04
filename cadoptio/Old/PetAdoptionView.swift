@@ -43,6 +43,7 @@ struct PetAdoptionView: View {
                 Spacer()
             }
             .padding(16)
+            #if os(iOS)
             .navigationBarTitle("Discover")
             .toolbar {
                 Button(action: {
@@ -52,6 +53,7 @@ struct PetAdoptionView: View {
                         .foregroundColor(.orange)
                 }
             }
+            #endif
             
             .sheet(isPresented: $isFilterViewPresented) {
                 FilterView(minWeight: PetData.minWeight(),
