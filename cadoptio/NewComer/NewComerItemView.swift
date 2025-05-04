@@ -1,21 +1,21 @@
 //
-//  NewComerView.swift
+//  NewComerItemView.swift
 //  cadoptio
 //
-//  Created by Delvina J on 29/04/25.
+//  Created by khoirunnisa' rizky noor fatimah on 04/05/25.
 //
 
 import SwiftUI
 
-public struct NewComerView: View {
+struct NewComerItemView: View {
     static let itemSize = CGSize(width: 100, height:  130)
     var cat: PetModel
     
     public init(cat: PetModel) {
         self.cat = cat
     }
-
-    public var body: some View {
+    
+    var body: some View {
         VStack {
             Image(cat.image ?? "placeholder")
                 .resizable()
@@ -24,17 +24,18 @@ public struct NewComerView: View {
         }
         .padding(0)
         .frame(width: Self.itemSize.width,
-                height: Self.itemSize.height)
+               height: Self.itemSize.height)
+        
     }
 }
 
-struct NewComerView_Previews: PreviewProvider {
+struct NewComerItemView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Group {
-                NewComerView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
-                NewComerView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
-                NewComerView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
+                NewComerItemView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
+                NewComerItemView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
+                NewComerItemView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
             }
             .frame(width: 120, height: 120)
             .border(.quaternary)

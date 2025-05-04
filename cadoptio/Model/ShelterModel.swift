@@ -31,6 +31,5 @@ public struct ShelterModel {
               name: "Popo Cat Shelter",
               address: "Jakarta Timur",
               distance: 300)
-        
     ]
 }

@@ -11,6 +11,8 @@ import SwiftUI
 ///
 /// The `Panel` enum encodes the views the person can select in the sidebar, and hence appear in the detail view.
 enum Panel: Hashable {
+    /// The value for the ``CatCornerView``
+    case catCorner
     /// The value for the ``NewComerView``.
     case newComer
     /// The value for the ``AdoptionNearYouView``.
@@ -34,6 +36,10 @@ struct Sidebar: View {
     /// The `Sidebar` view presents a `List` view, with a `NavigationLink` for each possible selection.
     var body: some View {
         List(selection: $selection) {
+            NavigationLink(value: Panel.catCorner) {
+                Label("Cat Corner", systemImage: "cat")
+            }
+            
             NavigationLink(value: Panel.newComer) {
                 Label("New Comer", systemImage: "box.truck")
             }
@@ -55,7 +61,7 @@ struct Sidebar: View {
 
 struct Sidebar_Previews: PreviewProvider {
     struct Preview: View {
-        @State private var selection: Panel? = Panel.newComer
+        @State private var selection: Panel? = Panel.catCorner
         var body: some View {
             Sidebar(selection: $selection)
         }
@@ -65,7 +71,7 @@ struct Sidebar_Previews: PreviewProvider {
         NavigationSplitView {
             Preview()
         } detail: {
-           Text("Detail!")
+           CatCornerView()
         }
     }
 }
