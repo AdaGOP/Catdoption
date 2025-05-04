@@ -9,16 +9,25 @@ import SwiftUI
 
 struct CatCornerView: View {
     
+    @Environment(\.dynamicTypeSize) private var dynamicType
+    
+#if os(iOS)
+    @Environment(\.horizontalSizeClass) private var sizeClass
+#endif
+    
     var body: some View {
-        WidthThresholdReader(widthThreshold: 520) { proxy in
+        GeometryReader { geometry in
+            let isCompact = computeIsCompact(width: geometry.size.width)
+            
             ScrollView(.vertical) {
                 Image("promo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(alignment: .top)
                     .padding(.top, -160)
-                Grid(horizontalSpacing: 12, verticalSpacing: 12) {
-                    if proxy.isCompact {
+                
+                Grid(horizontalSpacing: 5, verticalSpacing: 5) {
+                    if isCompact {
                         newComer
                         nearShelter
                         adoptionChart
@@ -34,12 +43,22 @@ struct CatCornerView: View {
                         }
                     }
                 }
-                
             }
-#if os(iOS)
-            .navigationBarTitle("Cat Corner")
-#endif
+            .frame(height: geometry.size.height)
         }
+    }
+    
+    
+    func computeIsCompact(width: Double) -> Bool {
+        if dynamicType >= .xxLarge {
+            return true
+        }
+#if os(iOS)
+        if sizeClass == .compact {
+            return true
+        }
+#endif
+        return width < 400
     }
     
     // MARK: - Cards
@@ -58,7 +77,6 @@ struct CatCornerView: View {
     var testimoni: some View {
         TestimoniCardView()
     }
-
 }
 
 

@@ -12,13 +12,17 @@ struct TestimoniCardView: View {
         "Loved the staff", "Smooth process", "Would adopt again", "Healthy kittens",
         "Great communication",  "Clean shelter",
         "Easy paperwork", "Friendly volunteers", "Quick adoption",
-        "Transparent info", "Highly recommended", "Stressed-out", "Purrfect match", "Cuddly kittens", "Adopted from a shelter", "Adopted from a rescue group", "Sick kittens", "Happy kittens"
+        "Transparent info", "Highly recommended", "Stressed-out", "Purrfect match", "Cuddly kittens", "Adopted from a shelter"
     ]
+    
+    var navigation: CardHeaderNavigation = .navigationLink
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("Adopter Testimonials", systemImage: "quote.bubble")
-                .font(.headline)
+            CardNavigationHeader(panel: .testimoni, navigation: navigation) {
+                Label("Adopter Testimonials", systemImage: "quote.bubble")
+                    .foregroundStyle(.orange)
+            }.padding()
             
             FlowLayout(alignment: .leading) {
                 ForEach(tags, id: \.self) { tag in
@@ -39,6 +43,7 @@ struct TestimoniCardView: View {
         )
         .padding(.horizontal)
     }
+    
 }
 
 #Preview {

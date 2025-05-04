@@ -12,13 +12,12 @@ struct NewComerCard: View {
     @State private var timer = Timer
         .publish(every: 0.01, on: .main, in: .default)
         .autoconnect()
-    
     @State private var xPosition: CGFloat = 0
+    @State private var pulseOrderText = false
     
     var cats: [PetModel]
-    var navigation: CardHeaderNavigation = .navigationLink
     
-    @State private var pulseOrderText = false
+    var navigation: CardHeaderNavigation = .navigationLink
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,37 +28,35 @@ struct NewComerCard: View {
             if #available(iOS 18.0, *) {
                 ScrollView(.horizontal) {
                     HStack(spacing: 0) {
-                        ForEach(cats, id: \.name) { cat in
+                        ForEach(cats, id: \.id) { cat in
                             NewComerItemView(cat: cat)
                                 .id(cat.id)
+                                .frame(width: NewComerItemView.itemSize.width)
                         }
                         .listStyle(.plain)
                         .safeAreaPadding(.horizontal)
                     }
                 }
-                .scrollClipDisabled()
+                .padding(.horizontal, 20)
                 .scrollPosition($scrollPosition)
                 .onReceive(timer) {_ in
-                    if xPosition >= (NewComerItemView.itemSize.width) * CGFloat(cats.count) {
+                    xPosition += 0.5
+                    if xPosition >= NewComerItemView.itemSize.width * CGFloat(cats.count) {
                         xPosition = 0
-                    } else {
-                        xPosition += 0.5
                     }
-                }
-                .onChange(of: xPosition) { 
+                    
                     scrollPosition.scrollTo(x: xPosition)
                 }
             } else {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(cats, id: \.name) { cat in
+                        ForEach(cats, id: \.id) { cat in
                             NewComerItemView(cat: cat)
                         }
                         .listStyle(.plain)
                         .safeAreaPadding(.horizontal)
                     }.padding(0)
                 }
-                .scrollClipDisabled()
             }
         }
         .background(

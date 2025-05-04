@@ -9,11 +9,16 @@ import SwiftUI
 import Charts
 
 struct ShelterChartView: View {
+    
+    var navigation: CardHeaderNavigation = .navigationLink
+    
     var body: some View {
         VStack(alignment: .leading) {
            
-            Label("Adoption Rates Among Shelter Cats", systemImage: "chart.line.uptrend.xyaxis")
-                .font(.headline)
+            CardNavigationHeader(panel: .shelter, navigation: navigation) {
+                Label("Adoption Rates Among Shelter Cats", systemImage: "chart.line.uptrend.xyaxis")
+                    .foregroundStyle(.orange)
+            }.padding()
             
             Chart {
                 ForEach(ShelterAdoption.getSampleData()) { dataPoint in

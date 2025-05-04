@@ -32,7 +32,6 @@ struct ShelterCard: View {
                     .padding()
                     
                 }
-                .scrollClipDisabled()
             }
             .padding()
             .background(
