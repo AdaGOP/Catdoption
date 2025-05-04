@@ -20,52 +20,47 @@ struct NewComerCard: View {
     var navigation: CardHeaderNavigation = .navigationLink
     
     var body: some View {
-        VStack(alignment: .leading) {
-            CardNavigationHeader(panel: .newComer, navigation: navigation) {
-                Label("New Comer", systemImage: "cat")
-                    .foregroundStyle(.orange)
-            }.padding()
-            if #available(iOS 18.0, *) {
-                ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
-                        ForEach(cats, id: \.id) { cat in
-                            NewComerItemView(cat: cat)
-                                .id(cat.id)
-                                .frame(width: NewComerItemView.itemSize.width)
+        CardContainer(height: 150) {
+            VStack(alignment: .leading) {
+                CardNavigationHeader(panel: .newComer, navigation: navigation) {
+                    Label("New Comer", systemImage: "cat")
+                        .foregroundStyle(.orange)
+                }.padding()
+                if #available(iOS 18.0, *) {
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 0) {
+                            ForEach(cats, id: \.id) { cat in
+                                NewComerItemView(cat: cat)
+                                    .id(cat.id)
+                                    .frame(width: NewComerItemView.itemSize.width)
+                            }
+                            .listStyle(.plain)
+                            .safeAreaPadding(.horizontal)
                         }
-                        .listStyle(.plain)
-                        .safeAreaPadding(.horizontal)
                     }
-                }
-                .padding(.horizontal, 20)
-                .scrollPosition($scrollPosition)
-                .onReceive(timer) {_ in
-                    xPosition += 0.5
-                    if xPosition >= NewComerItemView.itemSize.width * CGFloat(cats.count) {
-                        xPosition = 0
-                    }
-                    
-                    scrollPosition.scrollTo(x: xPosition)
-                }
-            } else {
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(cats, id: \.id) { cat in
-                            NewComerItemView(cat: cat)
+                    .padding(.horizontal, 20)
+                    .scrollPosition($scrollPosition)
+                    .onReceive(timer) {_ in
+                        xPosition += 0.5
+                        if xPosition >= NewComerItemView.itemSize.width * CGFloat(cats.count) {
+                            xPosition = 0
                         }
-                        .listStyle(.plain)
-                        .safeAreaPadding(.horizontal)
-                    }.padding(0)
+                        
+                        scrollPosition.scrollTo(x: xPosition)
+                    }
+                } else {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(cats, id: \.id) { cat in
+                                NewComerItemView(cat: cat)
+                            }
+                            .listStyle(.plain)
+                            .safeAreaPadding(.horizontal)
+                        }.padding(0)
+                    }
                 }
             }
         }
-        .background(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.adaptiveSystemBackground.opacity(0.95))
-                .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
-        )
-        .padding(10)
-        .clipShape(ContainerRelativeShape())
     }
 }
 

@@ -14,34 +14,27 @@ struct ShelterCard: View {
     @State private var pulseOrderText = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            VStack {
-                CardNavigationHeader(panel: .shelter, navigation: navigation) {
-                    Label("Adoption Near You", systemImage: "house.circle")
-                        .foregroundStyle(.orange)
-                }
-                ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
-                        ForEach(shelters, id: \.name) { shelter in
-                            ShelterItemView(shelter: shelter)
-                                .id(shelter.id)
-                        }
-                        .listStyle(.plain)
-                        .safeAreaPadding(.horizontal)
+        CardContainer(height: 150) {
+            VStack(alignment: .leading) {
+                VStack {
+                    CardNavigationHeader(panel: .shelter, navigation: navigation) {
+                        Label("Adoption Near You", systemImage: "house.circle")
+                            .foregroundStyle(.orange)
                     }
-                    .padding()
-                    
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 0) {
+                            ForEach(shelters, id: \.name) { shelter in
+                                ShelterItemView(shelter: shelter)
+                                    .id(shelter.id)
+                            }
+                            .listStyle(.plain)
+                            .safeAreaPadding(.horizontal)
+                        }
+                        .padding()
+                    }
                 }
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.adaptiveSystemBackground.opacity(0.95))
-                    .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
-            )
         }
-        .padding(10)
-        .clipShape(ContainerRelativeShape())
     }
 }
 
