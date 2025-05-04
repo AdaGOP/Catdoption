@@ -18,32 +18,25 @@ struct TestimoniCardView: View {
     var navigation: CardHeaderNavigation = .navigationLink
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            CardNavigationHeader(panel: .testimoni, navigation: navigation) {
-                Label("Adopter Testimonials", systemImage: "quote.bubble")
-                    .foregroundStyle(.orange)
-            }.padding()
-            
-            FlowLayout(alignment: .leading) {
-                ForEach(tags, id: \.self) { tag in
-                    Text(tag)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(Color.adaptiveSystemGray6)
-                        .clipShape(Capsule())
+        CardContainer(height: 420) {
+            VStack(alignment: .leading, spacing: 12) {
+                CardNavigationHeader(panel: .testimoni, navigation: navigation) {
+                    Label("Adopter Testimonials", systemImage: "quote.bubble")
+                        .foregroundStyle(.orange)
+                }.padding(.bottom, 4)
+                
+                FlowLayout(alignment: .leading) {
+                    ForEach(tags, id: \.self) { tag in
+                        Text(tag)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.adaptiveSystemGray6)
+                            .clipShape(Capsule())
+                    }
                 }
             }
-            
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.adaptiveSystemBackground.opacity(0.95))
-                .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 3)
-        )
-        .padding(.horizontal)
     }
-    
 }
 
 #Preview {

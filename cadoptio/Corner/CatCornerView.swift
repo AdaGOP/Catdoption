@@ -26,7 +26,7 @@ struct CatCornerView: View {
                     .frame(alignment: .top)
                     .padding(.top, -160)
                 
-                Grid(horizontalSpacing: 5, verticalSpacing: 5) {
+                Grid(horizontalSpacing: 12, verticalSpacing: 12) {
                     if isCompact {
                         newComer
                         nearShelter
