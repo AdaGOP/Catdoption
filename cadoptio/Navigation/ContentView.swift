@@ -10,13 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selection: Panel? = .catCorner
-    @State private var path = NavigationPath()
     
     var body: some View {
         NavigationSplitView {
             Sidebar(selection: $selection)
         } detail: {
-            NavigationStack {
+            NavigationStack(){
                 DetailColumn(selection: $selection)
             }
         }
