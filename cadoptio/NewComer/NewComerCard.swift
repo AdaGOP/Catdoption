@@ -28,21 +28,18 @@ struct NewComerCard: View {
                 }.padding()
                 if #available(iOS 18.0, *) {
                     ScrollView(.horizontal) {
-                        HStack(spacing: 0) {
+                        HStack() {
                             ForEach(cats, id: \.id) { cat in
                                 NewComerItemView(cat: cat)
                                     .id(cat.id)
-                                    .frame(width: NewComerItemView.itemSize.width)
                             }
                             .listStyle(.plain)
-                            .safeAreaPadding(.horizontal)
                         }
                     }
-                    .padding(.horizontal, 20)
                     .scrollPosition($scrollPosition)
                     .onReceive(timer) {_ in
                         xPosition += 0.5
-                        if xPosition >= NewComerItemView.itemSize.width * CGFloat(cats.count) {
+                        if xPosition >= NewComerItemView.width * CGFloat(cats.count) {
                             xPosition = 0
                         }
                         

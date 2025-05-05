@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewComerItemView: View {
-    static let itemSize = CGSize(width: 100, height:  130)
+    static let width: CGFloat = 100
     var cat: PetModel
     
     public init(cat: PetModel) {
@@ -19,12 +19,14 @@ struct NewComerItemView: View {
         VStack {
             Image(cat.image ?? "placeholder")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .clipShape(Circle())
+                .frame(width: Self.width, height: Self.width)
+            Text(cat.name)
+                .padding(.bottom, 10)
         }
         .padding(0)
-        .frame(width: Self.itemSize.width,
-               height: Self.itemSize.height)
+        .frame(width: Self.width)
         
     }
 }
@@ -37,8 +39,6 @@ struct NewComerItemView_Previews: PreviewProvider {
                 NewComerItemView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
                 NewComerItemView(cat: .init(image: "butet", name: "abs", type: "asd", distance: 10, weight: 10, gender: "F"))
             }
-            .frame(width: 120, height: 120)
-            .border(.quaternary)
         }
         .padding()
     }

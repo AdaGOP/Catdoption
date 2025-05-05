@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CatCornerView: View {
-    
+    // MARK: - TO DO
     @Environment(\.dynamicTypeSize) private var dynamicType
     
+    // MARK: - TO DO
 #if os(iOS)
     @Environment(\.horizontalSizeClass) private var sizeClass
 #endif
@@ -48,14 +49,16 @@ struct CatCornerView: View {
         }
     }
     
-    
     func computeIsCompact(width: Double) -> Bool {
+        print(width)
+        
+        // MARK: - TO DO
         if dynamicType >= .xxLarge {
             return true
         }
 #if os(iOS)
         if sizeClass == .compact {
-            return true
+            return width < 400
         }
 #endif
         return width < 400

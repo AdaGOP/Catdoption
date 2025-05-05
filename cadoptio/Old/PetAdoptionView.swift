@@ -9,78 +9,45 @@ import SwiftUI
 
 struct PetAdoptionView: View {
     
-    @State private var isFilterViewPresented = false
-    @State private var searchText: String = ""
-    @State private var filterModel: FilterModel = FilterModel(maxWeightValue: PetData.maxWeight())
-    @State private var showDetailPage: Bool = false
-    
-    var filteredData: [PetModel] {
-        allData
-            .filter { $0.weight <= filterModel.maxWeightValue }
-            .filter { searchText.isEmpty || $0.name.contains(searchText) }
-    }
-    
-    var body: some View {
-        NavigationView {
-            VStack(alignment: .leading, spacing: 16) {
-                if filteredData.isEmpty {
-                    Text("No result found")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                }
-                else {
-                    ForEach(filteredData, id: \.name) { model in
-                        NavigationLink(destination: DetailView()) {
-                            PetCard(model: model)
-                                .shadow(radius: 10)
-                                .onTapGesture {
-                                    showDetailPage.toggle()
-                                }
-                                .sensoryFeedback(.success, trigger: showDetailPage)
-                        }
-                    }
-                }
-                Spacer()
-            }
-            .padding(16)
-            #if os(iOS)
-            .navigationBarTitle("Discover")
-            .toolbar {
-                Button(action: {
-                    isFilterViewPresented = true
-                }) {
-                    Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                        .foregroundColor(.orange)
-                }
-            }
-            #endif
-            
-            .sheet(isPresented: $isFilterViewPresented) {
-                FilterView(minWeight: PetData.minWeight(),
-                           maxWeight: PetData.maxWeight(),
-                           filterModel: $filterModel)
-            }
-        }
-        .searchable(text: $searchText)
-    }
-    
     // MARK: private properties
     private let allData: [PetModel] = PetData.generatePets()
+    
+    var body: some View {
+        NavigationStack {
+            List(allData, id: \.name) { model in
+                NavigationLink(destination: DetailView()) {
+                    PetCard(model: model)
+                        .shadow(radius: 10)
+                    #if os(iOS)
+                        .listRowSeparator(Visibility.hidden)
+                    #endif
+                }
+                
+            }
+#if os(iOS)
+            .listStyle(.inset)
+            .navigationTitle("Discover")
+#endif
+        }
+    }
 }
 
 struct PetCard: View {
     let model: PetModel
     
     var body: some View {
-        HStack {
-            ImageView(imageName: "placeholder")
-                .background(Color(.white))
-            PetInfo(type: model.type, name: model.name, distance: model.distance, weight: model.weight, gender: model.gender)
-                .padding(.horizontal, 10.0)
+        GeometryReader { geo in
+            HStack {
+                Image("placeholder")
+                    .resizable()
+                    .scaledToFit()
+                PetInfo(type: model.type, name: model.name, distance: model.distance, weight: model.weight, gender: model.gender)
+                    .padding(.horizontal, 10.0)
+            }
+            .frame(width: geo.size.width, height: geo.size.height)
+            .background(Color(.white))
+            .cornerRadius(8)
         }
-        .frame(height: 120)
-        .background(Color(.white))
-        .cornerRadius(8)
     }
 }
 
@@ -154,7 +121,6 @@ struct ImageView: View {
     var body: some View {
         Rectangle()
             .foregroundColor(.clear)
-            .frame(width: 120, height: 120) // Set the frame here
             .overlay(
                 Image(imageName)
                     .resizable()
